@@ -1,0 +1,14 @@
+db:
+  type: postgres
+  host: localhost
+  database: ldtidataprod
+  username: postgres
+  password: password
+  port: 5432
+  synchronize: false
+  migrationsRun: false
+  logging: true
+
+graphql:
+  playground: true
+  degub: false
