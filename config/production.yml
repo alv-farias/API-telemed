@@ -3,7 +3,7 @@ db:
   host: localhost
   database: ldtidataprod
   username: postgres
-  password: password
+  password: postgres
   port: 5432
   synchronize: false
   migrationsRun: false
