@@ -5,12 +5,11 @@ import { GraphQLModule } from '@nestjs/graphql'
 import graphconfig from './configs/graphql.config';
 import ormconfig from './configs/orm.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './modules/user/user.module';
-
+import {PacienteModule} from './modules/paciente/paciente.module';
 
 @Module({
   imports: [
-    UserModule,
+    PacienteModule,
     GraphQLModule.forRoot(graphconfig),
     TypeOrmModule.forRoot(ormconfig)
   ],
