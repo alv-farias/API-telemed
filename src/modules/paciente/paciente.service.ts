@@ -1,14 +1,12 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import {PacienteEntity} from './paciente.entity'
+import { PacienteRepository } from './paciente.repository';
 import {CreatePacienteInput, UpdatePacienteInput} from './paciente.type'
 
 @Injectable()
 export class PacienteService{
     constructor(
-        @InjectRepository(PacienteEntity)
-        private readonly pacienteRepository: Repository<PacienteEntity>
+        private readonly pacienteRepository: PacienteRepository
     ){}
 
     async findAll(): Promise<PacienteEntity[]>{

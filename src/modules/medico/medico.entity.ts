@@ -1,5 +1,8 @@
-import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany} from 'typeorm';
 import {ObjectType, Field, ID} from '@nestjs/graphql';
+import {HospitalEntity} from '../hospital/hospital.entity';
+import { PacienteEntity } from '../paciente/paciente.entity';
+
 
 @Entity()
 @ObjectType()
@@ -44,4 +47,12 @@ export class MedicoEntity{
     @Field(()=> String)
     @Column()
     email: String
+
+    @Field(()=> HospitalEntity, {nullable:true})
+    @ManyToOne(()=> HospitalEntity, hospital=>hospital.medicos, {nullable:true})
+    hospital?: HospitalEntity
+
+    @Field(()=> [PacienteEntity], {nullable:true})
+    @OneToMany(()=> PacienteEntity, paciente=>paciente.medico, {nullable:true})
+    pacientes?: PacienteEntity[]
 }

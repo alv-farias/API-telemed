@@ -59,4 +59,5 @@ export class UpdateMedicoInput{
 
     @Field(()=> String, {nullable: true})
     email?: String
+
 }

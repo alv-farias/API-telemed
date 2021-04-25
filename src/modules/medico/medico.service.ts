@@ -1,14 +1,14 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { PacienteRepository } from '../paciente/paciente.repository';
 import {MedicoEntity} from './medico.entity'
+import { MedicoRepository } from './medico.repository';
 import {CreateMedicoInput, UpdateMedicoInput} from './medico.type'
 
 @Injectable()
 export class MedicoService{
     constructor(
-        @InjectRepository(MedicoEntity)
-        private readonly medicoRepository: Repository<MedicoEntity>
+        private readonly medicoRepository: MedicoRepository,
+        private readonly pacienteRepository: PacienteRepository
     ){}
 
     async findAll(): Promise<MedicoEntity[]>{
@@ -21,7 +21,7 @@ export class MedicoService{
     }
 
     async read(medicoId: number): Promise<MedicoEntity>{
-        const medico = await this.medicoRepository.findOne(medicoId);
+        const medico = await this.medicoRepository.findOne(medicoId, {relations:['pacientes']});
         if(!medico) throw new NotFoundException();
         return medico;
     }
@@ -37,5 +37,15 @@ export class MedicoService{
         const medico = await this.medicoRepository.findOne(medicoId);
         if(!medico) throw new NotFoundException();
         return this.medicoRepository.remove(medico);
+    }
+
+    async assignPacientes(pacienteId: number, medicoId: number): Promise<Boolean>{
+        const medico = await this.medicoRepository.findOne(medicoId);
+        if(!medico) throw new NotFoundException();
+        const paciente = await this.pacienteRepository.findOne(pacienteId, {relations: ['medico']});
+        if(!paciente) throw new NotFoundException();
+        Object.assign(paciente, {medico});
+        await this.pacienteRepository.save(paciente);
+        return true;
     }
 }

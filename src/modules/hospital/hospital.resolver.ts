@@ -44,4 +44,20 @@ export class HospitalResolver{
         if(del) return true;
         return false;
     }
+
+    @Mutation(()=> Boolean)
+    async assignMed(
+        @Args('medicoId', {type: ()=> Int}) medicoId: number,
+        @Args('hospitalId', {type: ()=> Int}) hospitalId: number
+        ): Promise<Boolean>{
+        return this.hospitalService.assignMedico(medicoId, hospitalId);
+    }
+
+    @Mutation(()=> Boolean)
+    async assignPac(
+        @Args('pacienteId', {type: ()=> Int}) pacienteId: number,
+        @Args('hospitalId', {type: ()=> Int}) hospitalId: number
+        ): Promise<Boolean>{
+        return this.hospitalService.assignMedico(pacienteId, hospitalId);
+    }
 }

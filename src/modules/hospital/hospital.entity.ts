@@ -1,5 +1,7 @@
-import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
 import {ObjectType, Field, ID} from '@nestjs/graphql';
+import {MedicoEntity} from '../medico/medico.entity';
+import { PacienteEntity } from '../paciente/paciente.entity';
 
 @Entity()
 @ObjectType()
@@ -48,4 +50,12 @@ export class HospitalEntity{
     @Field(()=> Boolean)
     @Column()
     sus: Boolean;
+
+    @Field(()=> [MedicoEntity])
+    @OneToMany(()=> MedicoEntity, medico=>medico.hospital)
+    medicos: MedicoEntity[]
+
+    @Field(()=> [PacienteEntity])
+    @OneToMany(()=> PacienteEntity, paciente=>paciente.hospital)
+    pacientes: PacienteEntity[]
 }

@@ -44,4 +44,12 @@ export class MedicoResolver{
         if(del) return true;
         return false;
     }
+
+    @Mutation(()=> Boolean)
+    async assignPac(
+        @Args('pacienteId', {type: ()=> Int}) pacienteId: number,
+        @Args('medicoId', {type: ()=> Int}) medicoId: number
+        ): Promise<Boolean>{
+        return this.medicoService.assignPacientes(pacienteId, medicoId);
+    }
 }

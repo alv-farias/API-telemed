@@ -4,9 +4,9 @@ server:
 db:
   type: postgres
   host: localhost
-  database: ldtidataprod
+  database: apitelemed
   username: postgres
-  password: postgres
+  password: adm123
   port: 5432
   synchronize: false
   migrationsRun: false
