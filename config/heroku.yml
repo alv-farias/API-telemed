@@ -27,5 +27,5 @@ encrypt:
 jwt:
   secret: '25rbno23jn4rj23nrfjeqwnro3rn45jt43n5on4jfwlsfewsqf867wsedfewrfgwer4'
   signOptions:
-    expiresIn: '60s'
+    expiresIn: '365d'
   IgnoreExpiration: false 
