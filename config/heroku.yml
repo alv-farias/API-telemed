@@ -11,6 +11,7 @@ db:
   synchronize: false
   migrationsRun: false
   logging: true
+  sslmode: require
 
 graphql:
   playground: true

@@ -10,8 +10,8 @@ const {
     username,
     synchronize,
     migrationsRun,
-    logging
-
+    logging,
+    sslmode
 } = config.get('db');
 
 export default {
@@ -24,6 +24,7 @@ export default {
     synchronize,
     migrationsRun,
     logging,
+    sslmode,
     entities: ['dist/modules/**/*.entity{.ts,.js}'],
     migrations: ['dist/db/migrations/**/*{.ts,.js}'], 
 
