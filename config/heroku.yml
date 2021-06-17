@@ -1,7 +1,7 @@
 server:
-  port: 443
+  port: 80
   host: api-telemed.herokuapp.com
-  https: true
+  https: false
   
 db:
   type: postgres
