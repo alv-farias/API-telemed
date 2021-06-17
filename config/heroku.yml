@@ -11,7 +11,8 @@ db:
   synchronize: false
   migrationsRun: false
   logging: true
-  ssl: true
+  ssl:
+    rejectUnauthorized: false
 
 graphql:
   playground: true
