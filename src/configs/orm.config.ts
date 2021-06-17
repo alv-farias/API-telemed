@@ -12,7 +12,6 @@ const {
     migrationsRun,
     logging,
     sslmode,
-    ssl
 } = config.get('db');
 
 export default {
@@ -26,7 +25,6 @@ export default {
     migrationsRun,
     logging,
     sslmode,
-    ssl,
     entities: ['dist/modules/**/*.entity{.ts,.js}'],
     migrations: ['dist/db/migrations/**/*{.ts,.js}'], 
 
