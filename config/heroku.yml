@@ -1,5 +1,4 @@
 server:
-  port: 80
   host: api-telemed.herokuapp.com
   https: false
   
