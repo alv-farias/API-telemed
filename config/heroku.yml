@@ -1,0 +1,28 @@
+server:
+  port: 4000
+  
+db:
+  type: postgres
+  host: ec2-52-4-111-46.compute-1.amazonaws.com
+  database: dfgimu9k0ql8ef
+  username: vcwuxlgxuwcktk
+  password: 9cd50f276f0915a1b556e83761b5caf0984dddee1a1d084862885e737753f021
+  port: 5432
+  synchronize: false
+  migrationsRun: false
+  logging: true
+
+graphql:
+  playground: true
+  degub: false
+
+encrypt:
+  key: 'f820ca1707e117d69fdbd9acaa69d4bc3d027e88c3bad6ec595e0cb33859009d'
+  algorithm: 'aes-256-cbc'
+  ivLength: 16
+
+jwt:
+  secret: '25rbno23jn4rj23nrfjeqwnro3rn45jt43n5on4jfwlsfewsqf867wsedfewrfgwer4'
+  signOptions:
+    expiresIn: '60s'
+  IgnoreExpiration: false 

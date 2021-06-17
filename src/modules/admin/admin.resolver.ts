@@ -4,7 +4,6 @@ import { AdminEntity } from './admin.entity';
 import { CreateAdminInput, UpdateAdminInput } from './admin.type';
 import { Auth } from 'src/decorators/auth.decorator';
 import { Roles } from 'src/enums/role.enum';
-import { UserEntity } from '../user/user.entity';
 
 @Resolver()
 export class AdminResolver{
@@ -12,7 +11,7 @@ export class AdminResolver{
         private readonly adminService: AdminService
     ){}
 
-    @Query(() => [UserEntity])
+    @Query(() => [AdminEntity])
     async admins(): Promise<AdminEntity[]>{
         return await this.adminService.findAll();
     }
