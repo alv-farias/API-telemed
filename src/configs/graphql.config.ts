@@ -6,6 +6,7 @@ const configs = config.get('graphql');
 
 export default {
     ...configs,
-     autoSchemaFile: true
+     autoSchemaFile: true,
+     context:({req, connection }) => connection ? { req: connection.context} : { req },
 
 } as GqlModuleOptions;

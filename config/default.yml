@@ -16,3 +16,14 @@ db:
 graphql:
   playground: true
   degub: true
+
+encrypt:
+  key: 'f820ac1707e117d69fdbd9acaa69d4bc3d027e88c3bad6ec595e0cb33859009d'
+  algorithm: 'aes-256-cbc'
+  ivLength: 16
+
+jwt:
+  secret: 'akpsmndiopn1on243n15432b5n32on43eio1wedj'
+  signOptions:
+    expiresIn: '60s'
+  IgnoreExpiration: true
