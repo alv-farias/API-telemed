@@ -3,10 +3,10 @@ server:
   
 db:
   type: postgres
-  host: localhost
-  database: apitelemed
-  username: postgres
-  password: adm123
+  host: ec2-54-227-246-76.compute-1.amazonaws.com
+  database: d7dsmnk8c4q9r0
+  username: sopmoqdrmvkxqu
+  password: 147884cc5a22d43749bae7e899d7f938252d1d5ba6467f4a5aea916514eee250
   port: 5432
   synchronize: false
   migrationsRun: false
