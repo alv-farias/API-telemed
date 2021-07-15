@@ -21,7 +21,7 @@ export class MedicoService{
     }
 
     async read(medicoId: number): Promise<MedicoEntity>{
-        const medico = await this.medicoRepository.findOne(medicoId, {relations:['pacientes']});
+        const medico = await this.medicoRepository.findOne(medicoId, {relations:['pacientes','hospital']});
         if(!medico) throw new NotFoundException();
         return medico;
     }
