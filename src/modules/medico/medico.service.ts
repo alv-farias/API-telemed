@@ -12,7 +12,7 @@ export class MedicoService{
     ){}
 
     async findAll(): Promise<MedicoEntity[]>{
-        return this.medicoRepository.find();
+        return this.medicoRepository.find({relations:['pacientes', 'hospital']});
     }
     
     async create(medicoData: CreateMedicoInput): Promise<MedicoEntity>{
